@@ -24,17 +24,9 @@
 
 	<typeAliases>
 		<!-- 配置别名,默认自定义的类型是没有别名的,只有系统的内置类型有别名 -->
-		<typeAlias type="com.beautifulsoup.mybatis.demo1.dto.User"
+		<typeAlias type="com.beautifulsoup.shiro.demo.entity.User"
 			alias="user" />
 	</typeAliases>
-
-	<typeHandlers>
-		<typeHandler handler="com.beautifulsoup.mybatis.demo1.handler.MyStringTypeHandler" javaType="string" jdbcType="varchar" />
-	</typeHandlers>
-
-	<!-- <objectFactory type=""> 对象工厂 </objectFactory> -->
-
-	<!-- <plugins> 插件 <plugin interceptor=""> </plugin> </plugins> -->
 
 	<environments default="development">
 		<!-- 定义数据库信息,使用development来作为数据库的构建环境 -->
@@ -53,6 +45,6 @@
 
 	<mappers>
 		<!-- 映射器 -->
-		<mapper resource="com\beautifulsoup\mybatis\demo1\mappers\UserMapper.xml" />
+		<mapper resource="mapper\ShiroDemoMapper.xml" />
 	</mappers>
 </configuration>

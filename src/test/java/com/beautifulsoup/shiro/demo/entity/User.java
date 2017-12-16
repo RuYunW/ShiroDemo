@@ -1,17 +1,22 @@
 package com.beautifulsoup.shiro.demo.entity;
 
+/**
+ * @Name: User
+ * @Description: 用户信息的实体类
+ * @Author: BeautifulSoup
+ * @Date: 2017年12月16日 上午11:25:41
+ */
 public class User {
-	private String id;
+	private String uid;
 	private String username;
 	private String password;
-	private String usercode;
-	private String salt;
-	private int locked;
-	public String getId() {
-		return id;
+	private String phone;
+	private String address;
+	public String getUid() {
+		return uid;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setUid(String uid) {
+		this.uid = uid;
 	}
 	public String getUsername() {
 		return username;
@@ -25,22 +30,16 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getUsercode() {
-		return usercode;
+	public String getPhone() {
+		return phone;
 	}
-	public void setUsercode(String usercode) {
-		this.usercode = usercode;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
-	public String getSalt() {
-		return salt;
+	public String getAddress() {
+		return address;
 	}
-	public void setSalt(String salt) {
-		this.salt = salt;
-	}
-	public int getLocked() {
-		return locked;
-	}
-	public void setLocked(int locked) {
-		this.locked = locked;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 }
