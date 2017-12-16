@@ -26,6 +26,7 @@
 		<!-- 配置别名,默认自定义的类型是没有别名的,只有系统的内置类型有别名 -->
 		<typeAlias type="com.beautifulsoup.shiro.demo.entity.User"
 			alias="user" />
+		<typeAlias type="com.beautifulsoup.shiro.demo.vo.UserCustom" alias="userCustom"/>
 	</typeAliases>
 
 	<environments default="development">
@@ -46,5 +47,6 @@
 	<mappers>
 		<!-- 映射器 -->
 		<mapper resource="mapper\ShiroDemoMapper.xml" />
+		<mapper resource="mapper\UserCustomMapper.xml" />
 	</mappers>
 </configuration>

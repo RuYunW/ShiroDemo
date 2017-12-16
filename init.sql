@@ -61,12 +61,12 @@ INSERT INTO `shirodemo`.`permission` (`pid`, `pname`, `url`, `pdesc`) VALUES ('5
 INSERT INTO `shirodemo`.`permission` (`pid`, `pname`, `url`, `pdesc`) VALUES ('6', 'item:delete:02', 'item:delete:02', 'item:delete:02');
 
 INSERT INTO `shirodemo`.`permission_role` (`id`, `rid`, `pid`) VALUES ('1', '1', '1');
-INSERT INTO `shirodemo`.`permission_role` (`id`, `rid`, `pid`) VALUES ('2', '1', '2');
-INSERT INTO `shirodemo`.`permission_role` (`id`, `rid`, `pid`) VALUES ('3', '1', '5');
+INSERT INTO `shirodemo`.`permission_role` (`id`, `rid`, `pid`) VALUES ('3', '2', '2');
 INSERT INTO `shirodemo`.`permission_role` (`id`, `rid`, `pid`) VALUES ('4', '2', '3');
 INSERT INTO `shirodemo`.`permission_role` (`id`, `rid`, `pid`) VALUES ('5', '2', '5');
 INSERT INTO `shirodemo`.`permission_role` (`id`, `rid`, `pid`) VALUES ('6', '3', '4');
 INSERT INTO `shirodemo`.`permission_role` (`id`, `rid`, `pid`) VALUES ('7', '3', '6');
+
 
 INSERT INTO `shirodemo`.`user_role` (`id`, `uid`, `rid`) VALUES ('1', '1', '1');
 INSERT INTO `shirodemo`.`user_role` (`id`, `uid`, `rid`) VALUES ('2', '1', '2');
