@@ -12,6 +12,7 @@ public class User {
 	private String password;
 	private String phone;
 	private String address;
+	private String salt;
 	public String getUid() {
 		return uid;
 	}
@@ -41,5 +42,11 @@ public class User {
 	}
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	public String getSalt() {
+		return salt;
+	}
+	public void setSalt(String salt) {
+		this.salt = salt;
 	}
 }

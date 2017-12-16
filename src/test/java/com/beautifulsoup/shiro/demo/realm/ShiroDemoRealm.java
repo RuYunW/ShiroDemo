@@ -9,6 +9,7 @@ import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.util.ByteSource;
 
 import com.beautifulsoup.shiro.demo.entity.User;
 import com.beautifulsoup.shiro.demo.mapper.ShiroDemoMapper;
@@ -41,10 +42,10 @@ public class ShiroDemoRealm extends AuthorizingRealm{
 		ShiroDemoMapper mapper=getShiroMapper();
 		User user = mapper.findByUsername(username);
 		if(null!=user){
-			SimpleAuthenticationInfo authenticationInfo=new SimpleAuthenticationInfo(username, user.getPassword(),TAG);
+			SimpleAuthenticationInfo authenticationInfo=new SimpleAuthenticationInfo(username, user.getPassword(),
+					ByteSource.Util.bytes(user.getSalt()),TAG);
 			return authenticationInfo;
 		}
-		
 		return null;
 	}
 	
