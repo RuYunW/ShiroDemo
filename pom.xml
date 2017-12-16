@@ -76,7 +76,7 @@
     </dependency>
   </dependencies>
 	<build>
-		<finalName>o2o</finalName>
+		<finalName>shirodemo</finalName>
 		<!-- 指定编译的版本 -->
 		<plugins>
 			<plugin>
