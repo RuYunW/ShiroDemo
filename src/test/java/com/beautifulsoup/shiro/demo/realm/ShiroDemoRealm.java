@@ -30,6 +30,12 @@ public class ShiroDemoRealm extends AuthorizingRealm{
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(
 			PrincipalCollection principals) {
+		//得到认证成功之后凭证的身份信息
+		String username=(String) principals.getPrimaryPrincipal();
+		
+		
+		
+		
 		return null;
 	}
 	/**
@@ -55,5 +61,6 @@ public class ShiroDemoRealm extends AuthorizingRealm{
 		ShiroDemoMapper mapper = sqlSession.getMapper(ShiroDemoMapper.class);
 		return mapper;
 	}
+	
 	
 }

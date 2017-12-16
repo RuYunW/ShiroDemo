@@ -81,7 +81,7 @@ public class AuthenticationTest {
 	 */
 	@Test
 	public void testMD5(){
-		String source="1997admin";
+		String source="123456";
 		String salt="1997password";
 		int hashIterations=3;
 		SimpleHash md5hash=new SimpleHash("md5", source, salt, hashIterations);

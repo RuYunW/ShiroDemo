@@ -1,46 +1,75 @@
--- ÓÃ»§ĞÅÏ¢±í
+-- ç”¨æˆ·ä¿¡æ¯è¡¨
 CREATE TABLE `user` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) NOT NULL DEFAULT '' COMMENT 'ÓÃ»§Ãû',
-  `password` varchar(100) NOT NULL DEFAULT '' COMMENT 'ÃÜÂë',
-  `phone` varchar(11) DEFAULT NULL COMMENT 'ÊÖ»úºÅ',
-  `address` varchar(100) DEFAULT NULL COMMENT 'µØÖ·',
+  `username` varchar(50) NOT NULL DEFAULT '' COMMENT 'ç”¨æˆ·å',
+  `password` varchar(100) NOT NULL DEFAULT '' COMMENT 'å¯†ç ',
+  `phone` varchar(11) DEFAULT NULL COMMENT 'æ‰‹æœºå·',
+  `address` varchar(100) DEFAULT NULL COMMENT 'åœ°å€',
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ÓÃ»§ĞÅÏ¢±í';
--- ½ÇÉ«ĞÅÏ¢±í
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ç”¨æˆ·ä¿¡æ¯è¡¨';
+-- è§’è‰²ä¿¡æ¯è¡¨
 CREATE TABLE `role` (
   `rid` int(11) NOT NULL AUTO_INCREMENT,
-  `rname` varchar(50) NOT NULL DEFAULT 'ordinary_user' COMMENT 'ÆÕÍ¨ÓÃ»§',
-  `rdesc` varchar(100) DEFAULT NULL COMMENT 'ÃèÊöĞÅÏ¢',
+  `rname` varchar(50) NOT NULL DEFAULT 'ordinary_user' COMMENT 'è§’è‰²å',
+  `rdesc` varchar(100) DEFAULT NULL COMMENT 'è§’è‰²æè¿°',
   PRIMARY KEY (`rid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='½ÇÉ«ĞÅÏ¢±í';
--- È¨ÏŞĞÅÏ¢±í
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='è§’è‰²ä¿¡æ¯è¡¨';
+-- æƒé™ä¿¡æ¯è¡¨
 CREATE TABLE `permission` (
   `pid` int(11) NOT NULL AUTO_INCREMENT,
-  `pname` varchar(50) NOT NULL DEFAULT 'query' COMMENT 'È¨ÏŞÃû³Æ',
-  `url` varchar(100) DEFAULT NULL COMMENT 'À¹½ØµÄ×ÊÔ´url',
-  `pdesc` varchar(100) DEFAULT NULL COMMENT 'È¨ÏŞĞÅÏ¢ÃèÊö',
+  `pname` varchar(50) NOT NULL DEFAULT 'query' COMMENT 'æƒé™å',
+  `url` varchar(100) DEFAULT NULL COMMENT 'èµ„æºé“¾æ¥',
+  `pdesc` varchar(100) DEFAULT NULL COMMENT 'èµ„æºæè¿°',
   PRIMARY KEY (`pid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='È¨ÏŞĞÅÏ¢±í';
--- ÓÃ»§½ÇÉ«±í
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='æƒé™ä¿¡æ¯è¡¨';
+-- ç”¨æˆ·è§’è‰²è¡¨
 CREATE TABLE `user_role` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uid` int(11) NOT NULL DEFAULT '1' COMMENT 'ÓÃ»§µÄÖ÷¼üid',
-  `rid` int(11) NOT NULL DEFAULT '1' COMMENT '½ÇÉ«µÄÖ÷¼üid',
+  `uid` int(11) NOT NULL DEFAULT '1' COMMENT 'ç”¨æˆ·ä¸»é”®id',
+  `rid` int(11) NOT NULL DEFAULT '1' COMMENT 'è§’è‰²ä¸»é”®id',
   PRIMARY KEY (`id`),
   KEY `fk_userid` (`uid`),
   KEY `fk_roleid` (`rid`),
   CONSTRAINT `fk_userid` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`),
   CONSTRAINT `fk_roleid` FOREIGN KEY (`rid`) REFERENCES `role` (`rid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ÓÃ»§½ÇÉ«ĞÅÏ¢±í';
--- ½ÇÉ«È¨ÏŞ±í
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='ç”¨æˆ·è§’è‰²è¡¨';
+-- è§’è‰²æƒé™è¡¨
 CREATE TABLE `permission_role` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `rid` int(11) NOT NULL DEFAULT '1' COMMENT '½ÇÉ«µÄÖ÷¼üid',
-  `pid` int(11) NOT NULL DEFAULT '1' COMMENT 'È¨ÏŞµÄÖ÷¼üid',
+  `rid` int(11) NOT NULL DEFAULT '1' COMMENT 'è§’è‰²ä¸»é”®id',
+  `pid` int(11) NOT NULL DEFAULT '1' COMMENT 'æƒé™ä¸»é”®id',
   PRIMARY KEY (`id`),
   KEY `fk_rid` (`rid`),
   KEY `fk_pid` (`pid`),
   CONSTRAINT `fk_pid` FOREIGN KEY (`pid`) REFERENCES `permission` (`pid`),
   CONSTRAINT `fk_rid` FOREIGN KEY (`rid`) REFERENCES `role` (`rid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='½ÇÉ«È¨ÏŞĞÅÏ¢±í';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='è§’è‰²æƒé™è¡¨';
+
+
+INSERT INTO `shirodemo`.`user` (`uid`, `username`, `password`, `phone`, `address`, `salt`) VALUES ('1', 'BeautifulSoup', '0110e09f435e75bd8630822da83ff153', '17864195311', 'æ­å·é˜¿é‡Œå·´å·´', '1997password');
+INSERT INTO `shirodemo`.`user` (`uid`, `username`, `password`, `phone`, `address`, `salt`) VALUES ('2', 'James_shu', '3c823383d7e5f1cfae9f833c3bc1829f', '17864195311', 'æ­å·ç½‘æ˜“', '1997password');
+
+INSERT INTO `shirodemo`.`role` (`rid`, `rname`, `rdesc`) VALUES ('1', 'role1', 'æ™®é€šç”¨æˆ·');
+INSERT INTO `shirodemo`.`role` (`rid`, `rname`, `rdesc`) VALUES ('2', 'role2', 'æ™®é€šç®¡ç†å‘˜');
+INSERT INTO `shirodemo`.`role` (`rid`, `rname`, `rdesc`) VALUES ('3', 'role3', 'è¶…çº§ç®¡ç†å‘˜');
+
+INSERT INTO `shirodemo`.`permission` (`pid`, `pname`, `url`, `pdesc`) VALUES ('1', 'item:query', 'item:query', 'item:query');
+INSERT INTO `shirodemo`.`permission` (`pid`, `pname`, `url`, `pdesc`) VALUES ('2', 'item:create:01', 'item:create:01', 'item:create:01');
+INSERT INTO `shirodemo`.`permission` (`pid`, `pname`, `url`, `pdesc`) VALUES ('3', 'item:*:01', 'item:*:01', 'item:*:01');
+INSERT INTO `shirodemo`.`permission` (`pid`, `pname`, `url`, `pdesc`) VALUES ('4', 'item:create:02', 'item:create:02', 'item:create:02');
+INSERT INTO `shirodemo`.`permission` (`pid`, `pname`, `url`, `pdesc`) VALUES ('5', 'item:update:02', 'item:update:02', 'item:update:02');
+INSERT INTO `shirodemo`.`permission` (`pid`, `pname`, `url`, `pdesc`) VALUES ('6', 'item:delete:02', 'item:delete:02', 'item:delete:02');
+
+INSERT INTO `shirodemo`.`permission_role` (`id`, `rid`, `pid`) VALUES ('1', '1', '1');
+INSERT INTO `shirodemo`.`permission_role` (`id`, `rid`, `pid`) VALUES ('2', '1', '2');
+INSERT INTO `shirodemo`.`permission_role` (`id`, `rid`, `pid`) VALUES ('3', '1', '5');
+INSERT INTO `shirodemo`.`permission_role` (`id`, `rid`, `pid`) VALUES ('4', '2', '3');
+INSERT INTO `shirodemo`.`permission_role` (`id`, `rid`, `pid`) VALUES ('5', '2', '5');
+INSERT INTO `shirodemo`.`permission_role` (`id`, `rid`, `pid`) VALUES ('6', '3', '4');
+INSERT INTO `shirodemo`.`permission_role` (`id`, `rid`, `pid`) VALUES ('7', '3', '6');
+
+INSERT INTO `shirodemo`.`user_role` (`id`, `uid`, `rid`) VALUES ('1', '1', '1');
+INSERT INTO `shirodemo`.`user_role` (`id`, `uid`, `rid`) VALUES ('2', '1', '2');
+INSERT INTO `shirodemo`.`user_role` (`id`, `uid`, `rid`) VALUES ('3', '2', '1');
+INSERT INTO `shirodemo`.`user_role` (`id`, `uid`, `rid`) VALUES ('4', '2', '2');
+INSERT INTO `shirodemo`.`user_role` (`id`, `uid`, `rid`) VALUES ('5', '2', '3');
